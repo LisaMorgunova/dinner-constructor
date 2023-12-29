@@ -5,32 +5,32 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class DinnerConstructor {
-    HashMap<String, ArrayList<String>> DinnerList;
+    HashMap<String, ArrayList<String>> dinnerList;
 
     public DinnerConstructor() {
-        DinnerList = new HashMap<>();
+        dinnerList = new HashMap<>();
         ArrayList<String> first = new ArrayList<>();
-        DinnerList.put("Первое", first);
+        dinnerList.put("Первое", first);
 
         ArrayList<String> second = new ArrayList<>();
-        DinnerList.put("Второе", second);
+        dinnerList.put("Второе", second);
 
         ArrayList<String> third = new ArrayList<>();
-        DinnerList.put("Напиток", third);
+        dinnerList.put("Напиток", third);
     }
 
     public void addDish(String dishType, String dishName) {
-        ArrayList<String> dishes = DinnerList.get(dishType);
+        ArrayList<String> dishes = dinnerList.get(dishType);
         dishes.add(dishName);
-        DinnerList.put(dishType, dishes);
+        dinnerList.put(dishType, dishes);
     }
 
-    public ArrayList<String> generateCombo(ArrayList<String> types) {
+    public ArrayList<String> generateCombo(HashMap < String, ArrayList < String >> types) {
         ArrayList<String> combo = new ArrayList<>();
         Random random = new Random();
 
         for (String type : types) {
-            ArrayList<String> dishes = DinnerList.get(type);
+            ArrayList<String> dishes = dinnerList.get(type);
             int index = random.nextInt(dishes.size());
             String dish = dishes.get(index);
             combo.add(dish);
