@@ -25,7 +25,7 @@ public class DinnerConstructor {
         dinnerList.put(dishType, dishes);
     }
 
-    public ArrayList<String> generateCombo(HashMap < String, ArrayList < String >> types) {
+    public ArrayList<String> generateCombo(ArrayList<String> types) {
         ArrayList<String> combo = new ArrayList<>();
         Random random = new Random();
 
