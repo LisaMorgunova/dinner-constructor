@@ -1,7 +1,7 @@
 package ru.practicum.dinner;
 
-import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class Main {
@@ -59,12 +59,10 @@ public class Main {
         //реализуйте ввод типов блюд
         ArrayList<String> types = new ArrayList<>();
 
-        while (true) {
-            String nextItem = scanner.nextLine();
+        String nextItem = scanner.nextLine();
+        while (!nextItem.isEmpty()) {
             types.add(nextItem);
             nextItem = scanner.nextLine();
-            if (!nextItem.isEmpty())
-                break;
         }
 
         for (int i = 0; i < numberOfCombos; i++) {

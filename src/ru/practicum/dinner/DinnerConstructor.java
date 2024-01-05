@@ -20,9 +20,12 @@ public class DinnerConstructor {
     }
 
     public void addDish(String dishType, String dishName) {
-        ArrayList<String> dishes = dinnerList.get(dishType);
-        dishes.add(dishName);
-        dinnerList.put(dishType, dishes);
+        if (dinnerList.get(dishType) != null)  // Добавлена проверка на существование ключа
+        {
+            ArrayList<String> dishes = dinnerList.get(dishType);
+            dishes.add(dishName);
+            dinnerList.put(dishType, dishes);
+        }
     }
 
     public ArrayList<String> generateCombo(ArrayList<String> types) {
@@ -30,12 +33,13 @@ public class DinnerConstructor {
         Random random = new Random();
 
         for (String type : types) {
-            ArrayList<String> dishes = dinnerList.get(type);
-            int index = random.nextInt(dishes.size());
-            String dish = dishes.get(index);
-            combo.add(dish);
+            if (dinnerList.get(type) != null) {
+                ArrayList<String> dishes = dinnerList.get(type);
+                int index = random.nextInt(dishes.size());
+                String dish = dishes.get(index);
+                combo.add(dish);
+            }
         }
-
         return combo;
     }
 }
