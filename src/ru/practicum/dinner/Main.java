@@ -17,7 +17,8 @@ public class Main {
             printMenu();
             String command = scanner.nextLine();
 
-            switch (command) {
+            switch (command) { //привет, Кирилл! Здесь находится один из нюансов, на который ты обращаешь внимание, в этом месте у тебя работает некорректно, хотя у меня все правильно рабоет. Честно :) Если что, я сижу на 11 JDK.
+
                 case "1":
                     addNewDish();
                     break;
@@ -44,7 +45,6 @@ public class Main {
         String dishName = scanner.nextLine();
 
         dc.addDish(dishType, dishName);
-// добавьте новое блюдоª
     }
 
     private static void generateDishCombo() {
@@ -56,7 +56,6 @@ public class Main {
 
         System.out.println("Вводите типы блюда, разделяя символом переноса строки (enter). Для завершения ввода введите пустую строку");
 
-        //реализуйте ввод типов блюд
         ArrayList<String> types = new ArrayList<>();
 
         String nextItem = scanner.nextLine();
@@ -69,7 +68,5 @@ public class Main {
             ArrayList<String> combo = dc.generateCombo(types);
             System.out.println("Комбинация " + (i + 1) + ": " + combo);
         }
-// сгенерируйте комбинации блюд и выведите на экран
-
     }
 }
