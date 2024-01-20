@@ -25,6 +25,11 @@ public class DinnerConstructor {
             ArrayList<String> dishes = dinnerList.get(dishType);
             dishes.add(dishName);
             dinnerList.put(dishType, dishes);
+        } else {
+            dinnerList.put(dishType, new ArrayList<String>());
+            ArrayList<String> dishes = dinnerList.get(dishType);
+            dishes.add(dishName);
+            dinnerList.put(dishType, dishes);
         }
     }
 
@@ -35,9 +40,12 @@ public class DinnerConstructor {
         for (String type : types) {
             if (dinnerList.get(type) != null) {
                 ArrayList<String> dishes = dinnerList.get(type);
-                int index = random.nextInt(dishes.size());
-                String dish = dishes.get(index);
-                combo.add(dish);
+                if (dishes.size() > 0) {
+                    int index = random.nextInt(dishes.size());
+                    String dish = dishes.get(index);
+                    combo.add(dish);
+                }
+
             }
         }
         return combo;
